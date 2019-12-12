@@ -5,11 +5,11 @@ def reverse_pairs(nums)
   sorted = []
   
   nums.reverse_each do |num|
-      idx = sorted.bsearch_index { |i| i * 2 < num } || sorted.size
-      pairs += sorted.size - idx
-      
-      idx = sorted.bsearch_index { |i| i <= num } || sorted.size
-      sorted.insert(idx, num)
+    idx = sorted.bsearch_index { |i| i * 2 < num } || sorted.size
+    pairs += sorted.size - idx
+    
+    idx = sorted.bsearch_index { |i| i <= num } || sorted.size
+    sorted.insert(idx, num)
   end
   
   pairs
