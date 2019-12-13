@@ -8,10 +8,10 @@ def shortest_subarray(a, k)
   result = a.size + 1
   monoq = []
   b.each_with_index do |bi, i|
-    monoq.pop until monoq.empty? || bi > b[monoq[-1]]
-    result = [result, i - monoq.shift].min until monoq.empty? || bi - b[monoq[0]] < k
+    monoq.pop until monoq.empty? || bi > b[monoq.last]
+    result = [result, i - monoq.shift].min until monoq.empty? || bi - b[monoq.first] < k
     monoq << i
   end
   
-  result < a.size + 1 ? result : -1
+  (result < a.size + 1) ? result : -1
 end

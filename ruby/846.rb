@@ -12,7 +12,8 @@ def is_n_straight_hand(hand, w)
       
     while (start_count = counts[start + 1])
       (start+1..start+w).each do |num|
-        return false unless (num_count = counts[num]) && (num_count >= start_count)
+        num_count = counts[num]
+        return false unless num_count && (num_count >= start_count)
         
         if num_count == start_count
           start += 1
