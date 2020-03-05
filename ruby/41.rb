@@ -9,6 +9,5 @@ def first_missing_positive(nums)
     end
   end
 
-  # Ruby 2.6 would allow (1..).each {...}
-  (1..2**31).each { |i| return i if nums[i - 1] != i }
+  1.step { |i| return i if nums[i - 1] != i }
 end
