@@ -41,3 +41,9 @@ class PriorityQueue
     end
   end
 end
+
+pq = PriorityQueue.new { |a, b| a < b }
+
+100.times { |i| pq.offer(i) }
+
+100.times { p pq.poll }
