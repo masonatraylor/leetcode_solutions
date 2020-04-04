@@ -48,7 +48,7 @@ class PriorityQueue
     @arr[idx2] = tmp
   end
   
-  def first(n)
+  def peek_n(n)
     result = []
     pq = PriorityQueue.new { |a, b| @comp.call(@arr[a], @arr[b]) }
     pq.offer(1) unless empty?
