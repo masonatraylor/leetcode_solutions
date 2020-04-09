@@ -1,13 +1,17 @@
 # @param {Integer[]} nums
 # @return {Integer}
 def find_duplicate(nums)
-  nums.each_with_index do |num, i|
-    while num != nums[num]
-      nums[i] = nums[num]
-      nums[num] = num
-      num = nums[i]
-    end
+  slow = fast = 0
+  loop do
+    slow = nums[slow]
+    fast = nums[nums[fast]]
+    break if slow == fast
   end
   
-  nums[0]
+  slow = 0
+  until slow == fast
+    slow = nums[slow]
+    fast = nums[fast]
+  end
+  slow
 end
